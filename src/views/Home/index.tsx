@@ -80,6 +80,7 @@ const Home: React.FC = () => {
             {/* Hero Section */}
             <HeroSection
                 scrollToSection={scrollToSection}
+                faqRef={faqRef}
                 featuresRef={featuresRef}
                 contactRef={contactRef}
                 aboutRef={aboutRef}

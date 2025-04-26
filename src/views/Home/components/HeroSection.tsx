@@ -7,6 +7,7 @@ import { heroNewData } from '../data'
 
 interface HeroSectionProps {
     scrollToSection: (ref: React.RefObject<HTMLElement>) => void
+    faqRef: React.RefObject<HTMLElement>
     featuresRef: React.RefObject<HTMLElement>
     contactRef: React.RefObject<HTMLElement>
     aboutRef: React.RefObject<HTMLElement>
@@ -14,6 +15,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({
     scrollToSection,
+    faqRef,
     featuresRef,
     contactRef,
     aboutRef,
@@ -45,6 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <HomeNavbar
                 scrollToSection={scrollToSection}
                 featuresRef={featuresRef}
+                faqRef={faqRef}
                 contactRef={contactRef}
                 aboutRef={aboutRef}
             />

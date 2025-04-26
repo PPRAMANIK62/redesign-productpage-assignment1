@@ -22,6 +22,7 @@ import HcfSignupPopup from '../Popups/HcfSignupPopup'
 interface HomeNavbarProps {
     scrollToSection?: (ref: React.RefObject<HTMLElement>) => void
     featuresRef?: React.RefObject<HTMLElement>
+    faqRef?: React.RefObject<HTMLElement>
     aboutRef?: React.RefObject<HTMLElement>
     contactRef?: React.RefObject<HTMLElement>
 }
@@ -54,12 +55,19 @@ interface HomeNavbarProps {
 const HomeNavbar: React.FC<HomeNavbarProps> = ({
     scrollToSection,
     featuresRef,
+    faqRef,
     aboutRef,
     contactRef,
 }) => {
     const { user } = useAuth()
 
     const menuItems = [
+        {
+            text: 'Features',
+            to: '/features',
+            ref: featuresRef,
+            icon: '🚀',
+        },
         {
             text: 'About Us',
             to: '/about',
@@ -69,7 +77,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
         {
             text: 'F&Q',
             to: '/features',
-            ref: featuresRef,
+            ref: faqRef,
             icon: '🎯',
         },
         {
@@ -96,7 +104,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
     }, [pathname])
 
     return (
-        <nav className={`w-full`}>
+        <nav className={`w-full z-10`}>
             <div className="max-w-[1538px] mx-auto px-4 w-full">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo */}
