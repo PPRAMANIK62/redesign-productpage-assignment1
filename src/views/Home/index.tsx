@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection'
 import HomeFAQs from './components/HomeFAQ'
 import InfoSection from './components/InfoSection'
 import PartnerLogosSection from './components/PartnerLogoSection'
+import TestimonialsSection from './components/TestimonialsSection'
 
 const Home: React.FC = () => {
     const contactRef = useRef(null)
@@ -98,7 +99,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Testimonials */}
-            {/* <TestimonialsSection /> */}
+            <TestimonialsSection />
 
             {/* FAQ Section */}
             <div ref={faqRef} className="relative">
