@@ -60,6 +60,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
     contactRef,
 }) => {
     const { user } = useAuth()
+    const [hasScrolled, setHasScrolled] = useState<boolean>(false)
 
     const menuItems = [
         {
@@ -93,6 +94,25 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
     const { pathname } = useLocation()
     const [searchParams] = useSearchParams()
 
+    // Handle scroll events to update navbar appearance
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY
+            if (scrollPosition > 10) {
+                setHasScrolled(true)
+            } else {
+                setHasScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        // Clean up event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
     useEffect(() => {
         const scrollTo = searchParams.get('scrollTo')
         if (pathname === '/' && scrollTo) {
@@ -104,9 +124,15 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
     }, [pathname])
 
     return (
-        <nav className={`w-full z-10`}>
+        <nav
+            className={`w-full z-50 fixed top-0 left-0 transition-all duration-300 ${
+                hasScrolled
+                    ? 'bg-[#01052f]/80 backdrop-blur-md shadow-lg'
+                    : 'bg-transparent'
+            }`}
+        >
             <div className="max-w-[1538px] mx-auto px-4 w-full">
-                <div className="flex justify-between h-16 items-center">
+                <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
                         <img
