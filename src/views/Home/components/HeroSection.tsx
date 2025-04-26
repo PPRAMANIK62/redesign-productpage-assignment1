@@ -97,7 +97,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                     <Button
                                         block
                                         variant="solid"
-                                        className="rounded-lg text-lg py-3 px-8 shadow-lg hover:shadow-primary/30 transition-all duration-300"
+                                        className="rounded-lg text-lg py-2 px-8 shadow-lg hover:shadow-primary/30 transition-all duration-300"
                                     >
                                         Get Started Free
                                     </Button>
