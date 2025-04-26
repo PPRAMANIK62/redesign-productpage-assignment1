@@ -1,10 +1,19 @@
+import type { Routes } from '@/@types/routes'
 import { lazy } from 'react'
 import authRoute from './authRoute'
 import othersRoute from './othersRoute'
-import type { Routes } from '@/@types/routes'
+import sharedRoutes from './sharedRoutes'
 
-export const publicRoutes: Routes = [...authRoute]
+/**
+ * Public routes configuration
+ * Routes defined here will be accessible to unauthenticated users
+ */
+export const publicRoutes: Routes = [...authRoute, ...sharedRoutes]
 
+/**
+ * Protected routes configuration
+ * Routes defined here will be accessible to authenticated users
+ */
 export const protectedRoutes: Routes = [
     /** Example purpose only, please remove */
     {
@@ -54,4 +63,5 @@ export const protectedRoutes: Routes = [
         authority: [],
     },
     ...othersRoute,
+    ...sharedRoutes,
 ]

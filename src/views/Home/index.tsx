@@ -7,7 +7,7 @@ import InfoSection from './components/InfoSection'
 import PartnerLogosSection from './components/PartnerLogoSection'
 import TestimonialsSection from './components/TestimonialsSection'
 
-const Home: React.FC = () => {
+const Home = () => {
     const contactRef = useRef(null)
     const aboutRef = useRef(null)
     const featuresRef = useRef(null)

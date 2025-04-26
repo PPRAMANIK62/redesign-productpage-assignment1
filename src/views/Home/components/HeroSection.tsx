@@ -28,7 +28,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     }, [])
 
     return (
-        <div className="bg-gradient-to-br from-[#01052f] to-[#0a1a5e] w-full relative flex flex-col py-2 md:py-5 overflow-hidden">
+        <div className="bg-gradient-to-br from-[#01052f] to-[#0a1a5e] w-full relative flex flex-col py-2 md:py-5 overflow-hidden h-screen">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full">

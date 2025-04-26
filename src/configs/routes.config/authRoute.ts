@@ -1,6 +1,10 @@
-import { lazy } from 'react'
 import type { Routes } from '@/@types/routes'
+import { lazy } from 'react'
 
+/**
+ * Auth routes configuration
+ * Routes defined here will be used for authentication purposes only
+ */
 const authRoute: Routes = [
     {
         key: 'signIn',
