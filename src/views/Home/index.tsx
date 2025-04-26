@@ -4,6 +4,7 @@ import FeaturesGrid from './components/FeaturesGrid'
 import HeroSection from './components/HeroSection'
 import HomeFAQs from './components/HomeFAQ'
 import InfoSection from './components/InfoSection'
+import PartnerLogosSection from './components/PartnerLogoSection'
 
 const Home: React.FC = () => {
     const contactRef = useRef(null)
@@ -89,7 +90,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Partner Logos */}
-            {/* <PartnerLogosSection /> */}
+            <PartnerLogosSection />
 
             {/* About/Info Section */}
             <div ref={aboutRef} className="relative">
