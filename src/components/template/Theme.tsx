@@ -12,7 +12,7 @@ const Theme = (props: CommonProps) => {
     useDirection()
 
     const { locale } = useLocale()
-    
+
     return (
         <ConfigProvider
             value={{

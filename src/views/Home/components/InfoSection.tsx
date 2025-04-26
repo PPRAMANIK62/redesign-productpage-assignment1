@@ -185,7 +185,6 @@ const FullPageSections = () => {
         },
     ]
 
-
     return (
         <div className="scroll-smooth max-w-[1538px] mx-auto">
             <div className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col gap-y-32">
@@ -480,8 +479,6 @@ const FullPageSections = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

@@ -124,8 +124,7 @@ const PageContainer = (props: PageContainerProps) => {
     const { pageContainerReassemble } = useLayout()
 
     const defaultClass = 'h-full flex flex-auto flex-col justify-between'
-    const pageContainerDefaultClass =
-        'relative h-full flex flex-auto flex-col'
+    const pageContainerDefaultClass = 'relative h-full flex flex-auto flex-col'
     const pageContainerGutterClass = ``
 
     return (
