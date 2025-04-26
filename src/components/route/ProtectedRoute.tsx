@@ -1,7 +1,7 @@
+import { useAuth } from '@/auth'
 import appConfig from '@/configs/app.config'
 import { REDIRECT_URL_KEY } from '@/constants/app.constant'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { useAuth } from '@/auth'
 
 const { unAuthenticatedEntryPath } = appConfig
 
@@ -13,16 +13,12 @@ const ProtectedRoute = () => {
     const getPathName =
         pathname === '/' ? '' : `?${REDIRECT_URL_KEY}=${location.pathname}`
 
-    if (!authenticated) {
-        return (
-            <Navigate
-                replace
-                to={`${unAuthenticatedEntryPath}${getPathName}`}
-            />
-        )
-    }
-
-    return <Outlet />
+    // Only redirect if we're not already at the unAuthenticatedEntryPath
+    return !authenticated && pathname !== unAuthenticatedEntryPath ? (
+        <Navigate replace to={`${unAuthenticatedEntryPath}${getPathName}`} />
+    ) : (
+        <Outlet />
+    )
 }
 
 export default ProtectedRoute

@@ -6,17 +6,22 @@ import { lazy } from 'react'
  * Routes defined here will be accessible to both authenticated and unauthenticated users
  */
 const sharedRoutes: Routes = [
-    // Add shared routes here
+    {
+        key: 'homePage',
+        path: `/`,
+        component: lazy(() => import('@/views/Home')),
+        authority: [],
+    },
     {
         key: 'about',
         path: `/about`,
-        component: lazy(() => import('@/views/Home')), // Using Home component as an example
+        component: lazy(() => import('@/views/Home')),
         authority: [],
     },
     {
         key: 'contact',
         path: `/contact`,
-        component: lazy(() => import('@/views/Home')), // Using Home component as an example
+        component: lazy(() => import('@/views/Home')),
         authority: [],
     },
 ]

@@ -1,13 +1,13 @@
+import type { LayoutType } from '@/@types/theme'
+import { useAuth } from '@/auth'
+import PageContainer from '@/components/template/PageContainer'
+import appConfig from '@/configs/app.config'
+import { protectedRoutes, publicRoutes } from '@/configs/routes.config'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import AppRoute from './AppRoute'
+import AuthorityGuard from './AuthorityGuard'
 import ProtectedRoute from './ProtectedRoute'
 import PublicRoute from './PublicRoute'
-import AuthorityGuard from './AuthorityGuard'
-import AppRoute from './AppRoute'
-import PageContainer from '@/components/template/PageContainer'
-import { protectedRoutes, publicRoutes } from '@/configs/routes.config'
-import appConfig from '@/configs/app.config'
-import { useAuth } from '@/auth'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import type { LayoutType } from '@/@types/theme'
 
 interface ViewsProps {
     pageContainerType?: 'default' | 'gutterless' | 'contained'
@@ -24,10 +24,15 @@ const AllRoutes = (props: AllRoutesProps) => {
     return (
         <Routes>
             <Route path="/" element={<ProtectedRoute />}>
-                <Route
-                    path="/"
-                    element={<Navigate replace to={authenticatedEntryPath} />}
-                />
+                {/* Only redirect if authenticatedEntryPath is not already "/" */}
+                {authenticatedEntryPath !== '/' && (
+                    <Route
+                        path="/"
+                        element={
+                            <Navigate replace to={authenticatedEntryPath} />
+                        }
+                    />
+                )}
                 {protectedRoutes.map((route, index) => (
                     <Route
                         key={route.key + index}

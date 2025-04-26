@@ -1,13 +1,19 @@
-import { Navigate, Outlet } from 'react-router-dom'
-import appConfig from '@/configs/app.config'
 import { useAuth } from '@/auth'
+import appConfig from '@/configs/app.config'
+import { Navigate, Outlet } from 'react-router-dom'
 
 const { authenticatedEntryPath } = appConfig
 
 const PublicRoute = () => {
     const { authenticated } = useAuth()
 
-    return authenticated ? <Navigate to={authenticatedEntryPath} /> : <Outlet />
+    // Only redirect if authenticatedEntryPath is not the current path
+    return authenticated &&
+        window.location.pathname !== authenticatedEntryPath ? (
+        <Navigate to={authenticatedEntryPath} />
+    ) : (
+        <Outlet />
+    )
 }
 
 export default PublicRoute
